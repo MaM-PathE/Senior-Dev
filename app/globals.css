@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    --primary: 209 100% 30%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 32% 17%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 32% 17%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 209 100% 30%;
+    --radius: 0.375rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
+    --card: 224 71% 4%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 209 100% 55%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27% 16%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27% 16%;
+    --muted-foreground: 217 10% 64%;
+    --accent: 215 27% 16%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27% 16%;
+    --input: 215 27% 16%;
+    --ring: 209 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+
+.elegant-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.elegant-card {
+  @apply bg-background border border-border/40 rounded-lg elegant-shadow;
+}
+
+.elegant-input {
+  @apply bg-background border border-border rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary/30 focus:border-primary/50 transition-all;
+}
+
+.elegant-button {
+  @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+}
+
+.elegant-button-primary {
+  @apply elegant-button bg-primary text-primary-foreground shadow hover:bg-primary/90;
+}
+
+.elegant-button-secondary {
+  @apply elegant-button bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80;
+}
+
+.elegant-button-outline {
+  @apply elegant-button border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-in-out;
+}
